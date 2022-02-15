@@ -13,11 +13,14 @@ let timer = () => {
     } else{
     setTime();
     clearInterval(intervalID);
+    soundClick();
+    timeDisplay.innerText = '🔔';
+    buttonChange();
     }
     }
 
 let timerStart = () => {
-   intervalID = setInterval(timer, 1000)
+   intervalID = setInterval(timer, 1000);
 }
 
 let buttonChange = () => {
@@ -39,11 +42,17 @@ let buttonChange = () => {
     }
 }
 
+function soundClick() {
+var audio = new Audio(); // Создаём новый элемент Audio
+audio.src = 'assets/service-bell_daniel_simion-1.mp3'; // Указываем путь к звуку «клика»
+audio.autoplay = true
+}
+
 
 
  workBtn.addEventListener('click', time = () => {time = 1500; setTime(); clearInterval(intervalID);});
  shortBreakBtn.addEventListener('click', time = () => {time = 300; setTime(); clearInterval(intervalID);});
- longBreakBtn.addEventListener('click', time = () => {time = 900; setTime(); clearInterval(intervalID);});
+ longBreakBtn.addEventListener('click', time = () => {time = 5; setTime(); clearInterval(intervalID);});
  startBtn.addEventListener('click', buttonChange);
 time = 0;
 
